@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-
-    var accessToken;
+    
     const boton = document.getElementById("botonAutorizar");
 
     boton.addEventListener("click", function() {
@@ -42,7 +41,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         const data = await response.json();
-        accessToken =  data.access_token;
         return data.access_token;
         
     }
