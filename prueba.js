@@ -133,4 +133,6 @@ document.addEventListener("DOMContentLoaded", function() {
             })
             .catch(error => console.error('Error al intercambiar código por token:', error));
     }
+
+    window.location.href = 'personalizar.html';
 });
