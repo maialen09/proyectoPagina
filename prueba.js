@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(token => {
                 getUserInfo(token)
                     .then(userInfo => {
-                        console.log('Información del usuario:', userInfo);
+                        console.log('Nombre del usuario:', userInfo);
                     })
                     .catch(error => console.error('Error al obtener la información del usuario:', error));
 
