@@ -1,6 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
-    
+
+    const storedToken = localStorage.getItem('accessToken');
+
+    if (storedToken) {
+        // Si ya hay un token almacenado, redirige al usuario directamente al otro HTML
+        window.location.href = 'personalizar.html?variable=' + encodeURIComponent(storedToken);
+    }
+
+    // Mostrar el botón de autorización
     const boton = document.getElementById("botonAutorizar");
+    boton.style.display = "block"; // asegurarse de que el botón esté visible
 
     boton.addEventListener("click", function() {
         const CLIENT_ID = 'f2b1e019c9b540adbed93c8bc201e87c';
@@ -113,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     })
                     .catch(error => console.error('Error al obtener la información sobre la pista actual:', error));
 
-                    window.location.href = 'personalizar.html?variable=' + encodeURIComponent(token);
+                    //window.location.href = 'personalizar.html?variable=' + encodeURIComponent(token);
 
             })
             .catch(error => console.error('Error al intercambiar código por token:', error));
@@ -148,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     })
                     .catch(error => console.error('Error al obtener la información sobre la pista actual:', error));
            
-                    window.location.href = 'personalizar.html?variable=' + encodeURIComponent(token);
+                    //window.location.href = 'personalizar.html?variable=' + encodeURIComponent(token);
 
             })
             .catch(error => console.error('Error al intercambiar código por token:', error));
