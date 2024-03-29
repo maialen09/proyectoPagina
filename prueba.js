@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         const data = await response.json();
-        console.log("La info que se recibe de aqui es: ", data);
         return data.access_token;
         
     }
@@ -57,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         const data = await response.json();
-        return data;
+        return data.display_name;
     }
 
     async function getCurrentPlayback(token) {
