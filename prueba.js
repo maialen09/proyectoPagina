@@ -75,7 +75,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const data = await response.json();
         return data;
     }
-
+    
+    var cambiar = false;
     // Uso
     const authorizationCode = getCodeFromURL();
 
@@ -101,8 +102,10 @@ document.addEventListener("DOMContentLoaded", function() {
                                 console.log("El cantante es " + currentPlayback.item.artists[i].name);
                             }
                             console.log('El nombre de la canción es: ', currentPlayback.item.name);
+                            cambiar = true;
                         } else {
                             console.log('El usuario no está escuchando nada en este momento.');
+                            cambiar = true;
                         }
                     })
                     .catch(error => console.error('Error al obtener la información sobre la pista actual:', error));
@@ -125,8 +128,10 @@ document.addEventListener("DOMContentLoaded", function() {
                                 console.log("El cantante es " + currentPlayback.item.artists[i].name);
                             }
                             console.log('El nombre de la canción es: ', currentPlayback.item.name);
+                            cambiar = true;
                         } else {
                             console.log('El usuario no está escuchando nada en este momento.');
+                            cambiar = true;
                         }
                     })
                     .catch(error => console.error('Error al obtener la información sobre la pista actual:', error));
@@ -134,5 +139,14 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => console.error('Error al intercambiar código por token:', error));
     }
 
-    window.location.href = 'personalizar.html';
+    if (cambiar){
+
+        console.log("He hecho los camnbios");
+
+        window.location.href = 'personalizar.html';
+
+
+    }
+
+    
 });
