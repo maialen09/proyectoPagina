@@ -118,8 +118,8 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => console.error('Error al intercambiar código por token:', error));
    
    
-            console.log("version ultima");
-            window.location.href = 'personalizar.html?variable=' + encodeURIComponent(accessToken);
+            console.log(accessToken);
+            //window.location.href = 'personalizar.html?variable=' + encodeURIComponent(accessToken);
 
         } else if (storedAuthorizationCode) {
         // Utilizar el código de autorización almacenado para obtener el token de acceso
@@ -150,8 +150,8 @@ document.addEventListener("DOMContentLoaded", function() {
             })
             .catch(error => console.error('Error al intercambiar código por token:', error));
    
-            console.log("version ultima");
-            window.location.href = 'personalizar.html?variable=' + encodeURIComponent(accessToken);
+            console.log(accessToken);
+            //window.location.href = 'personalizar.html?variable=' + encodeURIComponent(accessToken);
         }
     
     
