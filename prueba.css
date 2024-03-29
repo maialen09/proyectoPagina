@@ -1,13 +1,26 @@
+
+.boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*height: 100vh; /* Esto centra verticalmente el contenido */
+    margin-top: 100px;
+  }
+  
+
 #botonAutorizar{
 
-    background-color: aquamarine;
+    background-color: royalblue;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
 }
 
 .titulo {
 
     text-align: center;
-    color: red;
-    font-size: 33px;
+    color: royalblue;
+    font-size: 50px;
 }
 
  body{
