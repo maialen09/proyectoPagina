@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
+
+    var accessToken;
     const boton = document.getElementById("botonAutorizar");
 
     boton.addEventListener("click", function() {
@@ -40,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         const data = await response.json();
+        accessToken =  data.access_token;
         return data.access_token;
         
     }
@@ -115,8 +118,9 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => console.error('Error al intercambiar código por token:', error));
    
    
-            console.log("es la ultima version");
-            window.location.href = 'personalizar.html';
+            console.log("version ultima");
+            window.location.href = 'personalizar.html?variable=' + encodeURIComponent(accessToken);
+
         } else if (storedAuthorizationCode) {
         // Utilizar el código de autorización almacenado para obtener el token de acceso
         exchangeCodeForToken(storedAuthorizationCode)
@@ -146,8 +150,8 @@ document.addEventListener("DOMContentLoaded", function() {
             })
             .catch(error => console.error('Error al intercambiar código por token:', error));
    
-            console.log("es la ultima version");
-            window.location.href = 'personalizar.html';
+            console.log("version ultima");
+            window.location.href = 'personalizar.html?variable=' + encodeURIComponent(accessToken);
         }
     
     
