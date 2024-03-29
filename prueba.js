@@ -101,11 +101,11 @@ document.addEventListener("DOMContentLoaded", function() {
                             for (let i = 0; i < currentPlayback.item.artists.length; i++) {
                                 console.log("El cantante es " + currentPlayback.item.artists[i].name);
                             }
-                            cambiar = 1;
+                            
                             console.log('El nombre de la canción es: ', currentPlayback.item.name);
                             
                         } else {
-                            cambiar = 1;
+                            
                             console.log('El usuario no está escuchando nada en este momento.');
                             
                         }
@@ -129,11 +129,11 @@ document.addEventListener("DOMContentLoaded", function() {
                             for (let i = 0; i < currentPlayback.item.artists.length; i++) {
                                 console.log("El cantante es " + currentPlayback.item.artists[i].name);
                             }
-                            cambiar = 1;
+                            
                             console.log('El nombre de la canción es: ', currentPlayback.item.name);
                             
                         } else {
-                            cambiar = 1;
+                            
                             console.log('El usuario no está escuchando nada en este momento.');
                             
                         }
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
     console.log("LLego hasta aqui");
-    console.log(cambiar);
+    cambiar = 1;
     if (cambiar == 1){
 
         console.log("He hecho los camnbios");
