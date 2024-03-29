@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const REDIRECT_URI = 'https://maialen09.github.io/proyectoPagina/';
         const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=user-read-private%20user-read-email%20user-read-currently-playing`;
 
+        boton.style.display = "none"; // hacer que desaparezca el boton una vez que se haya entrado a la página
+
         // Guardar el código de autorización en el almacenamiento local antes de la redirección
         localStorage.setItem('authorizationCode', '');
 
@@ -37,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const data = await response.json();
         return data.access_token;
+        console.log("La info que se recibe de aqui es: ", data);
     }
 
     async function getCurrentPlayback(token) {
