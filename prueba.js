@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
         exchangeCodeForToken(authorizationCode)
             .then(token => {
                 getCurrentPlayback(token)
-                .then(data => getUserInfo(token) , console.log(data))
+                .then(data => getUserInfo(token) , console.log(data)) 
                     .then(currentPlayback => {
                         if (currentPlayback) {
                             for (let i = 0; i < currentPlayback.item.artists.length; i++) {
