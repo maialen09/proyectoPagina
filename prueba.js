@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
         return data;
     }
     
-    var cambiar = false;
+    var cambiar = 0;
     // Uso
     const authorizationCode = getCodeFromURL();
 
@@ -101,11 +101,11 @@ document.addEventListener("DOMContentLoaded", function() {
                             for (let i = 0; i < currentPlayback.item.artists.length; i++) {
                                 console.log("El cantante es " + currentPlayback.item.artists[i].name);
                             }
-                            cambiar = true;
+                            cambiar = 1;
                             console.log('El nombre de la canción es: ', currentPlayback.item.name);
                             
                         } else {
-                            cambiar = true;
+                            cambiar = 1;
                             console.log('El usuario no está escuchando nada en este momento.');
                             
                         }
@@ -129,11 +129,11 @@ document.addEventListener("DOMContentLoaded", function() {
                             for (let i = 0; i < currentPlayback.item.artists.length; i++) {
                                 console.log("El cantante es " + currentPlayback.item.artists[i].name);
                             }
-                            cambiar = true;
+                            cambiar = 1;
                             console.log('El nombre de la canción es: ', currentPlayback.item.name);
                             
                         } else {
-                            cambiar = true;
+                            cambiar = 1;
                             console.log('El usuario no está escuchando nada en este momento.');
                             
                         }
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => console.error('Error al intercambiar código por token:', error));
     }
 
-    if (cambiar){
+    if (cambiar == 1){
 
         console.log("He hecho los camnbios");
 
