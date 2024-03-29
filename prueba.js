@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function() {
         return queryParams.get('code');
     }
 
+
+
     async function exchangeCodeForToken(code) {
         const CLIENT_ID = 'f2b1e019c9b540adbed93c8bc201e87c';
         const CLIENT_SECRET = '1e711b53f4d849fe89426534e517bece';
@@ -38,8 +40,24 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         const data = await response.json();
-        return data.access_token;
         console.log("La info que se recibe de aqui es: ", data);
+        return data.access_token;
+        
+    }
+
+    async function getUserInfo(token){
+
+        const INFO_URL = 'https://api.spotify.com/v1/me';
+
+        const response = await fetch (INFO_URL, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        const data = await response.json();
+        return data;
     }
 
     async function getCurrentPlayback(token) {
@@ -72,6 +90,7 @@ document.addEventListener("DOMContentLoaded", function() {
         exchangeCodeForToken(authorizationCode)
             .then(token => {
                 getCurrentPlayback(token)
+                .then(data => getUserInfo(token) , console.log(data))
                     .then(currentPlayback => {
                         if (currentPlayback) {
                             for (let i = 0; i < currentPlayback.item.artists.length; i++) {
