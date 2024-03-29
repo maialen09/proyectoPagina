@@ -113,7 +113,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     .catch(error => console.error('Error al obtener la información sobre la pista actual:', error));
             })
             .catch(error => console.error('Error al intercambiar código por token:', error));
-    } else if (storedAuthorizationCode) {
+   
+   
+            console.log("es la ultima version");
+            window.location.href = 'personalizar.html';
+        } else if (storedAuthorizationCode) {
         // Utilizar el código de autorización almacenado para obtener el token de acceso
         exchangeCodeForToken(storedAuthorizationCode)
             .then(token => {
@@ -141,18 +145,17 @@ document.addEventListener("DOMContentLoaded", function() {
                     .catch(error => console.error('Error al obtener la información sobre la pista actual:', error));
             })
             .catch(error => console.error('Error al intercambiar código por token:', error));
-    }
+   
+            console.log("es la ultima version");
+            window.location.href = 'personalizar.html';
+        }
     
-    console.log("LLego hasta aqui");
-    cambiar = 1;
-    if (cambiar == 1){
+    
 
-        console.log("He hecho los camnbios");
-
-        window.location.href = 'personalizar.html';
+       
 
 
-    }
+    
 
     
 });
