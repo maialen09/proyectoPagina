@@ -142,7 +142,9 @@ document.addEventListener("DOMContentLoaded", function() {
             })
             .catch(error => console.error('Error al intercambiar código por token:', error));
     }
-
+    
+    console.log("LLego hasta aqui");
+    console.log(cambiar);
     if (cambiar == 1){
 
         console.log("He hecho los camnbios");
