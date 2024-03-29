@@ -2,3 +2,15 @@
 
     background-color: aquamarine;
 }
+
+.titulo {
+
+    text-align: center;
+    color: red;
+    font-size: 33px;
+}
+
+body{
+
+    background-color: black;
+}
