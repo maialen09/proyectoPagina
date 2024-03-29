@@ -114,11 +114,13 @@ document.addEventListener("DOMContentLoaded", function() {
                         }
                     })
                     .catch(error => console.error('Error al obtener la información sobre la pista actual:', error));
+
+                    window.location.href = 'personalizar.html?variable=' + encodeURIComponent(token);
+
             })
             .catch(error => console.error('Error al intercambiar código por token:', error));
    
    
-            console.log(accessToken);
             //window.location.href = 'personalizar.html?variable=' + encodeURIComponent(accessToken);
 
         } else if (storedAuthorizationCode) {
@@ -147,10 +149,12 @@ document.addEventListener("DOMContentLoaded", function() {
                         }
                     })
                     .catch(error => console.error('Error al obtener la información sobre la pista actual:', error));
+           
+                    window.location.href = 'personalizar.html?variable=' + encodeURIComponent(token);
+
             })
             .catch(error => console.error('Error al intercambiar código por token:', error));
    
-            console.log(accessToken);
             //window.location.href = 'personalizar.html?variable=' + encodeURIComponent(accessToken);
         }
     
