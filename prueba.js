@@ -101,11 +101,13 @@ document.addEventListener("DOMContentLoaded", function() {
                             for (let i = 0; i < currentPlayback.item.artists.length; i++) {
                                 console.log("El cantante es " + currentPlayback.item.artists[i].name);
                             }
+                            cambiar = true;
                             console.log('El nombre de la canción es: ', currentPlayback.item.name);
-                            cambiar = true;
+                            
                         } else {
-                            console.log('El usuario no está escuchando nada en este momento.');
                             cambiar = true;
+                            console.log('El usuario no está escuchando nada en este momento.');
+                            
                         }
                     })
                     .catch(error => console.error('Error al obtener la información sobre la pista actual:', error));
@@ -127,11 +129,13 @@ document.addEventListener("DOMContentLoaded", function() {
                             for (let i = 0; i < currentPlayback.item.artists.length; i++) {
                                 console.log("El cantante es " + currentPlayback.item.artists[i].name);
                             }
+                            cambiar = true;
                             console.log('El nombre de la canción es: ', currentPlayback.item.name);
-                            cambiar = true;
+                            
                         } else {
-                            console.log('El usuario no está escuchando nada en este momento.');
                             cambiar = true;
+                            console.log('El usuario no está escuchando nada en este momento.');
+                            
                         }
                     })
                     .catch(error => console.error('Error al obtener la información sobre la pista actual:', error));
