@@ -41,23 +41,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const data = await response.json();
         console.log("La info que se recibe de aqui es: ", data);
-        return data.access_token;
-        
-    }
-
-    async function getUserInfo(token){
-
-        const INFO_URL = 'https://api.spotify.com/v1/me';
-
-        const response = await fetch (INFO_URL, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        });
-
-        const data = await response.json();
-        return data;
     }
 
     async function getCurrentPlayback(token) {
