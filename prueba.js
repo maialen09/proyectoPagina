@@ -41,6 +41,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const data = await response.json();
         console.log("La info que se recibe de aqui es: ", data);
+        return data.access_token;
+        
+    }
+
+    async function getUserInfo(token){
+
+        const INFO_URL = 'https://api.spotify.com/v1/me';
+
+        const response = await fetch (INFO_URL, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        const data = await response.json();
+        return data;
     }
 
     async function getCurrentPlayback(token) {
@@ -72,8 +89,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
         exchangeCodeForToken(authorizationCode)
             .then(token => {
+                getUserInfo(token)
+                    .then(userInfo => {
+                        console.log('Información del usuario:', userInfo);
+                    })
+                    .catch(error => console.error('Error al obtener la información del usuario:', error));
+
                 getCurrentPlayback(token)
-                .then(data => getUserInfo(token) , console.log(data)) 
                     .then(currentPlayback => {
                         if (currentPlayback) {
                             for (let i = 0; i < currentPlayback.item.artists.length; i++) {
@@ -91,6 +113,12 @@ document.addEventListener("DOMContentLoaded", function() {
         // Utilizar el código de autorización almacenado para obtener el token de acceso
         exchangeCodeForToken(storedAuthorizationCode)
             .then(token => {
+                getUserInfo(token)
+                    .then(userInfo => {
+                        console.log('Información del usuario:', userInfo);
+                    })
+                    .catch(error => console.error('Error al obtener la información del usuario:', error));
+
                 getCurrentPlayback(token)
                     .then(currentPlayback => {
                         if (currentPlayback) {
