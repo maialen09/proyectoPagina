@@ -3,14 +3,14 @@
     background-color: aquamarine;
 }
 
-#titulo {
+.titulo {
 
     text-align: center;
     color: red;
     font-size: 33px;
 }
 
-.body{
+ body{
 
     background-color: black;
 }
