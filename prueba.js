@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
       // Tu acción aquí
       
       const CLIENT_ID = 'f2b1e019c9b540adbed93c8bc201e87c'; // Reemplaza con tu Client ID
-      const REDIRECT_URI = 'http://127.0.0.1:5500/index.html'; // Reemplaza con tu URL de redireccionamiento
+      const REDIRECT_URI = 'https://maialen09.github.io/proyectoPagina/'; // Reemplaza con tu URL de redireccionamiento
       const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=user-read-private%20user-read-email%20user-read-currently-playing`;
 
       window.location.href = AUTH_URL;
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
       async function exchangeCodeForToken(code) {
         const CLIENT_ID = 'f2b1e019c9b540adbed93c8bc201e87c'; // Reemplaza con tu Client ID
         const CLIENT_SECRET = '1e711b53f4d849fe89426534e517bece'; // Reemplaza con tu Client Secret
-        const REDIRECT_URI = 'http://127.0.0.1:5500/index.html'; // Reemplaza con tu URL de redireccionamiento
+        const REDIRECT_URI = 'https://maialen09.github.io/proyectoPagina/'; // Reemplaza con tu URL de redireccionamiento
         const TOKEN_URL = 'https://accounts.spotify.com/api/token';
   
         const formData = new URLSearchParams();
