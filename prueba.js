@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function() {
       const REDIRECT_URI = 'https://maialen09.github.io/proyectoPagina/'; // Reemplaza con tu URL de redireccionamiento
       const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=user-read-private%20user-read-email%20user-read-currently-playing`;
 
+      localStorage.setItem('authorizationCode', '');
+        
       window.location.href = AUTH_URL;
     });
 
