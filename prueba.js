@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         const data = await response.json();
+        window.location.href = 'personalizar.html?variable=' + encodeURIComponent(data.access_token);
         return data.access_token;
         
     }
