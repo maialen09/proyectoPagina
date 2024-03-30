@@ -57,8 +57,21 @@ document.addEventListener("DOMContentLoaded", async function() {
                 // Obtener información del usuario y de la canción utilizando el token
                 Promise.all([getUserInfo(token), getCurrentPlayback(token)])
                     .then(([userInfo, currentPlayback]) => {
-                        console.log('Info del usuario:', userInfo);
-                        console.log('Reproducción actual:', currentPlayback);
+                        console.log('Info del usuario:', userInfo.display_name);
+
+                        if (currentPlayback) {
+                            for (let i = 0; i < currentPlayback.item.artists.length; i++) {
+                                console.log("El cantante es " + currentPlayback.item.artists[i].name);
+                            }
+                            
+                            console.log('El nombre de la canción es: ', currentPlayback.item.name);
+                            
+                        } else {
+                            
+                            console.log('El usuario no está escuchando nada en este momento.');
+                            
+                        }
+                        
                     })
                     .catch(error => console.error('Error al obtener la información:', error));
             })
