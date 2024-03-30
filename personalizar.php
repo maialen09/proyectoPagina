@@ -1,4 +1,19 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <link rel="stylesheet" href="personalizar.css">
+
+</head>
+<body>
+
+    <h1 class="personalizar"> PÁGINA PARA ACTUALIZAR EL MONIGOTE DE LA PERSONA   </h1>
+    <script src="personalizar.js"></script>
+    
+
+    <?php
 $dsn = 'mysql:host=MariaDB;dbname=aplicacion';
 $usuario = 'root';
 $contraseña = 'calavera';
@@ -12,3 +27,6 @@ try {
     echo "Error de conexión: " . $e->getMessage();
 }
 ?>
+
+</body>
+</html>

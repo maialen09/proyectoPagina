@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     function exchangeCodeForToken(code) {
         const CLIENT_ID = 'f2b1e019c9b540adbed93c8bc201e87c';
         const CLIENT_SECRET = '1e711b53f4d849fe89426534e517bece';
-        const REDIRECT_URI = 'https://maialen09.github.io/proyectoPagina/personalizar.html'; // Cambiar al HTML de la segunda página
+        const REDIRECT_URI = 'https://maialen09.github.io/proyectoPagina/personalizar.php'; // Cambiar al HTML de la segunda página
         const TOKEN_URL = 'https://accounts.spotify.com/api/token';
 
         const formData = new URLSearchParams();
