@@ -1,10 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-
-    
-
     // Mostrar el botón de autorización
     const boton = document.getElementById("botonAutorizar");
-
 
     boton.addEventListener("click", function() {
         const CLIENT_ID = 'f2b1e019c9b540adbed93c8bc201e87c';
@@ -18,21 +14,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         window.location.href = AUTH_URL;
     });
-
-    function getCodeFromURL() {
-        const queryParams = new URLSearchParams(window.location.search);
-        return queryParams.get('code');
-    }
-
-    if (getCodeFromURL() && !storedAuthorizationCode) {
-        // Guardar el código de autorización en el almacenamiento local si es la primera vez que se obtiene
-        localStorage.setItem('authorizationCode', getCodeFromURL());
-    } else if (storedAuthorizationCode) {
-        // Utilizar el código de autorización almacenado para obtener el token de acceso
-        exchangeCodeForToken(storedAuthorizationCode);
-    }
-
-
 
     async function exchangeCodeForToken(code) {
         const CLIENT_ID = 'f2b1e019c9b540adbed93c8bc201e87c';
@@ -90,9 +71,13 @@ document.addEventListener("DOMContentLoaded", function() {
         const data = await response.json();
         return data;
     }
-    
-    var cambiar = 0;
-    // Uso
+
+    function getCodeFromURL() {
+        const queryParams = new URLSearchParams(window.location.search);
+        return queryParams.get('code');
+    }
+
+    // Verificar si hay un código de autorización en la URL
     const authorizationCode = getCodeFromURL();
 
     // Verificar si hay un código de autorización en el almacenamiento local
@@ -169,13 +154,4 @@ document.addEventListener("DOMContentLoaded", function() {
    
             //window.location.href = 'personalizar.html?variable=' + encodeURIComponent(accessToken);
         }
-    
-    
-
-       
-
-
-    
-
-    
 });
