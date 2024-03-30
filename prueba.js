@@ -24,6 +24,14 @@ document.addEventListener("DOMContentLoaded", function() {
         return queryParams.get('code');
     }
 
+    if (getCodeFromURL() && !storedAuthorizationCode) {
+        // Guardar el código de autorización en el almacenamiento local si es la primera vez que se obtiene
+        localStorage.setItem('authorizationCode', getCodeFromURL());
+    } else if (storedAuthorizationCode) {
+        // Utilizar el código de autorización almacenado para obtener el token de acceso
+        exchangeCodeForToken(storedAuthorizationCode);
+    }
+
 
 
     async function exchangeCodeForToken(code) {
@@ -46,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const data = await response.json();
         window.location.href = 'personalizar.html?variable=' + encodeURIComponent(data.access_token);
+
         return data.access_token;
         
     }
