@@ -59,6 +59,24 @@ document.addEventListener("DOMContentLoaded", async function() {
                     .then(([userInfo, currentPlayback]) => {
                         console.log('Info del usuario:', userInfo.display_name);
 
+                        const nuevoUsuario = {
+
+                            nombre_usuario: userInfo.display_name,
+                            imagen: 'monigote.png'
+                        };
+                        var conexion = crearConexion();
+
+                        conexion.connect((err) => {
+                            if (err) {
+                                console.error('Error al conectar a la base de datos: ', err);
+                                return;
+                            }
+                            console.log('Conexión exitosa a la base de datos MySQL');
+                            conexion.anadirUsuario(nuevoUsuario)
+                        });
+                        
+                        
+
                         if (currentPlayback) {
                             for (let i = 0; i < currentPlayback.item.artists.length; i++) {
                                 console.log("El cantante es " + currentPlayback.item.artists[i].name);
