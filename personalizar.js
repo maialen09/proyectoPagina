@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                             nombre_usuario: userInfo.display_name,
                             imagen: 'monigote.png'
                         };
-                        var conexion = crearConexion();
+                        var conexion = crearconexion();
 
                         conexion.connect((err) => {
                             if (err) {
