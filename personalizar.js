@@ -59,23 +59,27 @@ document.addEventListener("DOMContentLoaded", async function() {
                     .then(([userInfo, currentPlayback]) => {
                         console.log('Info del usuario:', userInfo.display_name);
 
-                        const nuevoUsuario = {
-
+                                            // Realiza una solicitud POST al servidor con los datos del usuario
+                    fetch('/api/usuario', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
                             nombre_usuario: userInfo.display_name,
                             imagen: 'monigote.png'
-                        };
-                        var conexion = crearconexion();
+                        })
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('Usuario añadido exitosamente.');
+                        } else {
+                            console.error('Error al añadir usuario:', response.statusText);
+                        }
+                    })
+                    .catch(error => console.error('Error al añadir usuario:', error));
 
-                        conexion.connect((err) => {
-                            if (err) {
-                                console.error('Error al conectar a la base de datos: ', err);
-                                return;
-                            }
-                            console.log('Conexión exitosa a la base de datos MySQL');
-                            conexion.anadirUsuario(nuevoUsuario)
-                        });
-                        
-                        
+                                            
 
                         if (currentPlayback) {
                             for (let i = 0; i < currentPlayback.item.artists.length; i++) {
