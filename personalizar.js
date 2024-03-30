@@ -51,6 +51,8 @@ document.addEventListener("DOMContentLoaded", async function() {
     const queryParams = new URLSearchParams(window.location.search);
     const authorizationCode = queryParams.get('code');
 
+    
+
     if (authorizationCode) {
         exchangeCodeForToken(authorizationCode)
             .then(token => {
@@ -59,27 +61,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                     .then(([userInfo, currentPlayback]) => {
                         console.log('Info del usuario:', userInfo.display_name);
 
-                                            // Realiza una solicitud POST al servidor con los datos del usuario
-                    fetch('/api/usuario', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            nombre_usuario: userInfo.display_name,
-                            imagen: 'monigote.png'
-                        })
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            console.log('Usuario añadido exitosamente.');
-                        } else {
-                            console.error('Error al añadir usuario:', response.statusText);
-                        }
-                    })
-                    .catch(error => console.error('Error al añadir usuario:', error));
-
-                                            
+                                            // Realiza una solicitud POST al servidor con los datos del usuarioS              
 
                         if (currentPlayback) {
                             for (let i = 0; i < currentPlayback.item.artists.length; i++) {
