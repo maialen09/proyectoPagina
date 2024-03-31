@@ -48,6 +48,26 @@ document.addEventListener("DOMContentLoaded", async function() {
         });
     }
 
+    function conectarConBaseDeDatos(){
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('GET', 'conexion.py', true);
+
+        xhr.onload = function(){
+
+            if (xhr.status >= 200 && xhr.status < 300) {
+                // La solicitud fue exitosa
+                console.log(xhr.responseText);
+            } else {
+                // Error en la solicitud
+                console.error('Error al conectar con la base de datos');
+            }
+        };
+
+        xhr.send();
+    }
+
     const queryParams = new URLSearchParams(window.location.search);
     const authorizationCode = queryParams.get('code');
 
@@ -69,6 +89,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                             }
                             
                             console.log('El nombre de la canción es: ', currentPlayback.item.name);
+                            conectarConBaseDeDatos();
                             
                         } else {
                             
